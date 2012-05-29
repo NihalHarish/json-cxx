@@ -1,6 +1,8 @@
 
+#include <json/json.h>
 #include <string>
 
+#include "node.hh"
 #include "parser.hh"
 
 
@@ -13,15 +15,10 @@ Parser::Parser(const char* str) {
 }
 
 Parser::~Parser() {
-  if(doc) json_object_put(doc)
+  if(doc) json_object_put(doc);
 }
 
-Node *Parser::operator [](const char* id) {
-
-  struct json_object *node;
-
-  node = json_object_object_get(new_obj, id);
-
-  new Node(node);
+struct json_object *Parser::operator [](const char* id) {
+  return json_object_object_get(doc, id);
 }
 

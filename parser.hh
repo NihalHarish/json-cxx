@@ -4,6 +4,8 @@
 
 #include <json/json.h>
 
+#include "node.hh"
+
 class Parser {
 public:
 
@@ -11,10 +13,7 @@ public:
   Parser(const char*);
   ~Parser();
 
-  operator [](const char*);
-
-
-
+  struct json_object *operator [](const char*);
 
 private:
   
