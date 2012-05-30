@@ -13,6 +13,8 @@ public:
 
   const char* to_cstr();
   int to_int();
+  bool to_boolean();
+  double to_double();
 
 private:
 
